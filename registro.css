@@ -1,0 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background: url("Fondo.png") no-repeat center center/cover;
+    animation:fadeIn 0.6s ease;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* IZQUIERDA */
+.left{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.left img{
+    width:420px;
+    animation:float 3s infinite ease-in-out;
+}
+
+/* flotante */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* DERECHA */
+.right{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.card{
+    background:#f5f5f5;
+    padding:60px;
+    width:420px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    text-align:center;
+    animation:fadeIn 0.8s ease;
+}
+
+.brand{
+    width:220px;
+    margin-bottom:10px;
+}
+
+/* INPUTS */
+.input-group{
+    position:relative;
+    margin:18px 0;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+.input-group label{
+    position:absolute;
+    top:50%;
+    left:12px;
+    transform:translateY(-50%);
+    background:#f5f5f5;
+    padding:0 5px;
+    color:#777;
+    transition:0.3s;
+}
+
+/* animación label */
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-8px;
+    font-size:12px;
+    color:#5c6f8f;
+}
+
+/* BOTONES */
+.btn{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    margin-top:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* principal */
+.primary{
+    background:#5c6f8f;
+    color:white;
+}
+
+.primary:hover{
+    background:#3f6bd9;
+    transform:translateY(-2px);
+}
+
+/* secundario */
+.secondary{
+    background:white;
+    border:1px solid #ccc;
+}
+
+.secondary:hover{
+    background:#eee;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}

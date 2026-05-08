@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="global.css">
+
+<!-- LIBRERÍA DE GRÁFICAS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="logo_text.png" class="brand-img">
+        <h1>DASHBOARD</h1>
+        <p>Resumen inteligente de tu inventario</p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+
+        <div class="kpi">
+            <h3 id="totalPrendas">0</h3>
+            <p>Prendas</p>
+        </div>
+
+        <div class="kpi">
+            <h3 id="totalStock">0</h3>
+            <p>Total Stock</p>
+        </div>
+
+        <div class="kpi">
+            <h3 id="totalValor">$0</h3>
+            <p>Valor Inventario</p>
+        </div>
+
+    </div>
+
+    <!-- GRÁFICAS -->
+    <div class="charts">
+
+        <div class="chart-box">
+            <h3>Categorías</h3>
+            <canvas id="chartCategorias"></canvas>
+        </div>
+
+        <div class="chart-box">
+            <h3>Stock por prenda</h3>
+            <canvas id="chartStock"></canvas>
+        </div>
+
+    </div>
+
+    <!-- BOTÓN VOLVER -->
+    <button class="btn-back" onclick="window.location.href='inventario.html'">
+        ← Volver al inventario
+    </button>
+
+</div>
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

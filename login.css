@@ -1,0 +1,215 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background: url("Fondo.png") no-repeat center center/cover;
+    animation:fadeIn 0.6s ease;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* IZQUIERDA */
+.left{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.left img{
+    width:420px;
+    animation:float 3s infinite ease-in-out;
+}
+
+/* efecto flotante */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* DERECHA */
+.right{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* TARJETA */
+.card{
+    background:#f5f5f5;
+    padding:60px;
+    width:400px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    text-align:center;
+    animation:fadeIn 0.8s ease;
+}
+
+.brand{
+    width:220px;
+    margin-bottom:10px;
+}
+
+/* INPUTS MODERNOS */
+.input-group{
+    position:relative;
+    margin:20px 0;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+.input-group label{
+    position:absolute;
+    top:50%;
+    left:12px;
+    transform:translateY(-50%);
+    background:#f5f5f5;
+    padding:0 5px;
+    color:#777;
+    transition:0.3s;
+}
+
+/* animación label */
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-8px;
+    font-size:12px;
+    color:#5c6f8f;
+}
+
+/* BOTONES */
+.btn{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    margin-top:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* principal */
+.primary{
+    background:#5c6f8f;
+    color:white;
+}
+
+.primary:hover{
+    background:#3f6bd9;
+    transform:translateY(-2px);
+}
+
+/* secundario */
+.secondary{
+    background:white;
+    border:1px solid #ccc;
+}
+
+.secondary:hover{
+    background:#eee;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* TEXTO */
+.forgot{
+    margin-top:15px;
+    color:#5c6f8f;
+    font-size:14px;
+}
+
+
+
+
+/* ANIMACIONES NUEVAS */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-8px); }
+  30%       { transform: translateX(8px); }
+  45%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  75%       { transform: translateX(-4px); }
+  90%       { transform: translateX(4px); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-18px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to   { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* CLASES DINÁMICAS */
+.shake         { animation: shake 0.5s ease !important; }
+.fade-out-page { animation: fadeOut 0.35s ease forwards !important; }
+
+/* SPINNER dentro del botón */
+.btn-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.primary.loading .btn-spinner { display: inline-block; }
+.primary.loading .btn-text    { opacity: 0.8; }
+.primary:disabled             { opacity: 0.75; cursor: not-allowed; }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  background: #c0392b;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 9999;
+  min-width: 260px;
+}
+.toast.show { display: flex; animation: toastIn 0.35s ease forwards; }
+.toast.hide { animation: toastOut 0.3s ease forwards; }

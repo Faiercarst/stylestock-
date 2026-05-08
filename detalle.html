@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Detalle de Prenda</title>
+<link rel="stylesheet" href="detalle.css">
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="logo_text.png" class="brand-img">
+        <h1 class="title">DETALLE DE PRENDA</h1>
+    </div>
+
+    <!-- CARD -->
+    <div class="detalle-card">
+
+        <div class="img-box">
+            <img id="imgDetalle">
+        </div>
+
+        <div class="info">
+
+            <h2 id="nombre"></h2>
+
+            <p><b>Categoría:</b> <span id="categoria"></span></p>
+            <p><b>Talla:</b> <span id="talla"></span></p>
+            <p><b>Color:</b> <span id="color"></span></p>
+            <p><b>Precio:</b> $<span id="precio"></span></p>
+            <p><b>Stock:</b> <span id="cantidad"></span></p>
+
+            <!-- BOTONES -->
+            <div class="buttons">
+
+                <button class="btn-edit" onclick="editarDetalle()">
+                    ✏ Editar
+                </button>
+
+                <button class="btn-delete" onclick="abrirModal()">
+                    🗑 Eliminar
+                </button>
+
+                <button class="btn-back" onclick="volver()">
+                    ← Volver
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-box">
+        <p>¿Eliminar esta prenda?</p>
+
+        <button class="yes" onclick="confirmarEliminar()">Sí</button>
+        <button class="no" onclick="cerrarModal()">Cancelar</button>
+    </div>
+</div>
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Prenda</title>
+<link rel="stylesheet" href="reg_prenda.css">
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="logo_text.png" class="brand-img">
+        <h1>REGISTRAR PRENDA</h1>
+        <p>Agrega o edita tu producto</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+
+        <form id="formPrenda">
+
+            <!-- NOMBRE -->
+            <div class="form-row">
+                <label>Nombre</label>
+                <input type="text" id="nombre" placeholder="Ej: Camisa oversize" required>
+            </div>
+
+            <!-- IMAGEN -->
+            <div class="form-row">
+                <label>Imagen</label>
+
+                <div class="img-upload">
+                    <input type="file" id="imagen" accept="image/*">
+                    <img id="preview" class="preview-img">
+                </div>
+            </div>
+
+            <!-- CATEGORÍA -->
+             <div class="form-row">
+                <label>Categoría</label>
+                <select id="categoria" required>
+                    <option value="" disabled selected hidden>Selecciona categoría</option>
+                    <option>Camisas</option>
+                    <option>Pantalones</option>
+                    <option>Vestidos</option>
+                    <option>Abrigos</option>
+                </select>
+            </div>
+
+            
+             
+            <!-- TALLA -->
+            <div class="form-row">
+                <label>Talla</label>
+                <div class="sizes" id="sizes">
+                    <button type="button">S</button>
+                    <button type="button">M</button>
+                    <button type="button">L</button>
+                    <button type="button">XL</button>
+                </div>
+            </div>
+
+            <!-- COLOR -->
+            <div class="form-row">
+                <label>Color</label>
+                <input type="text" id="color" placeholder="Ej: Negro" required>
+            </div>
+
+            <!-- PRECIO -->
+            <div class="form-row">
+                <label>Precio</label>
+                <input type="number" id="precio" placeholder="Ej: 50000" required>
+            </div>
+
+            <!-- STOCK -->
+            <div class="form-row">
+                <label>Stock</label>
+
+                <div class="cantidad-box">
+                    <input type="number" id="cantidad" value="1" placeholder="Cantidad">
+
+                    <div class="cantidad-btns">
+                        <button type="button" id="menos">-</button>
+                        <button type="button" id="mas">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTONES -->
+            <div class="buttons">
+                <button type="submit" class="btn-save">Guardar</button>
+
+                <button type="button" class="btn-cancel"
+                onclick="window.location.href='inventario.html'">
+                    Cancelar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

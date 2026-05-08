@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inventario</title>
+<link rel="stylesheet" href="inventario.css">
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="logo_text.png" class="brand-img">
+        <h1 class="title">INVENTARIO</h1>
+        <p class="subtitle">Gestiona tu stock de moda con estilo</p>
+    </div>
+
+    <!-- CONTROLES -->
+    <div class="controls">
+
+        <div class="search-box">
+            <span>🔍</span>
+            <input id="buscar" type="text" placeholder="Buscar prenda...">
+        </div>
+
+        <select id="fCategoria">
+            <option value="">Categoría</option>
+            <option>Camisas</option>
+            <option>Pantalones</option>
+            <option>Vestidos</option>
+            <option>Abrigos</option>
+        </select>
+
+        <select id="fTalla">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+        </select>
+
+        <select id="fColor">
+            <option value="">Color</option>
+            <option>Negro</option>
+            <option>Blanco</option>
+            <option>Azul</option>
+            <option>Gris</option>
+        </select>
+
+        <button onclick="irAgregar()" class="btn-add">
+            + Agregar
+        </button>
+
+        <button onclick="window.location.href='dashboard.html'" class="btn-dashboard">
+            Dashboard
+        </button>
+
+    </div>
+
+    <!-- GRID DE PRODUCTOS -->
+    <div id="grid" class="grid"></div>
+
+</div>
+
+<script src="particulas.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Login - StyleStock</title>
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+    <div class="toast" id="toast">
+        <span class="toast-icon">✕</span>
+        <span class="toast-msg" id="toastMsg">Correo o contraseña incorrecta</span>
+    </div>
+
+
+<div class="container">
+
+    <!-- LADO IZQUIERDO -->
+    <div class="left">
+        <img src="logo.png" alt="logo">
+    </div>
+
+    <!-- LADO DERECHO -->
+    <div class="right">
+        <div class="card" id="loginCard">
+
+            <img src="logo_text.png" class="brand">
+            <h1>Bienvenido</h1>
+            <p>Gestiona tu inventario de moda</p>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label>Correo electrónico</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label>Contraseña</label>
+                </div>
+
+                <button type="submit" class="btn primary" id="loginBtn">
+                    <span class="btn-text">Iniciar sesión</span>
+                    <span class="btn-spinner" id="btnSpinner"></span>
+                </button>
+
+                <button type="button" class="btn secondary" onclick="goRegister()">
+                    Registrarse
+                </button>
+
+            </form>
+
+            <p class="forgot">¿Olvidaste tu contraseña?</p>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
