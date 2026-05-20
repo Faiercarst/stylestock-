@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleStock — Detalle de Prenda</title>
+<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="detalle.css">
+<link rel="icon" type="image/svg+xml" href="Gemini_Generated_Image_kxv9nskxv9nskxv9.png">
+</head>
+<body>
+
+
+
+<svg style="display:none">
+  <defs>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                            0.7   0.3   0 0 0
+                                            0     0.3   0.7 0 0
+                                            0     0     0   1 0"/>
+    </filter>
+  </defs>
+</svg>
+
+
+<div class="orb-bg">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo_text.png" class="brand-img" alt="StyleStock">
+    <h1 class="title">Detalle de Prenda</h1>
+  </div>
+
+  <!-- CARD -->
+  <div class="detalle-card">
+
+    <div class="img-box">
+      <img id="imgDetalle" src="" alt="Imagen de la prenda">
+    </div>
+
+    <div class="info">
+      <h2 id="nombre"></h2>
+
+      <div class="specs">
+        <div class="spec-item">
+          <div class="spec-label">Categoría</div>
+          <div class="spec-value" id="categoria"></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Talla</div>
+          <div class="spec-value" id="talla"></div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Color</div>
+          <div class="spec-value" id="color"></div>
+        </div>
+        <div class="spec-item stock">
+          <div class="spec-label">Stock disponible</div>
+          <div class="spec-value" id="cantidad"></div>
+        </div>
+        <div class="spec-item precio" style="grid-column: 1 / -1;">
+          <div class="spec-label">Precio</div>
+          <div class="spec-value">$<span id="precio"></span></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn-edit" onclick="editarDetalle()">✏ Editar</button>
+        <button class="btn-venta" onclick="window.location.href='venta.html'">💸 Registrar venta</button>
+        <button class="btn-delete" onclick="abrirModal()">🗑 Eliminar</button>
+        <button class="btn-back" onclick="volver()">← Volver</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" style="display:none;">
+  <div class="modal-backdrop" onclick="cerrarModal()"></div>
+  <div class="modal-box">
+    <p>¿Eliminar esta prenda?</p>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <div class="modal-actions">
+      <button class="yes" onclick="confirmarEliminar()">Sí, eliminar</button>
+      <button class="no" onclick="cerrarModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ACCESIBILIDAD -->
+<button class="btn-accesibilidad" onclick="toggleAccesibilidad()">♿</button>
+
+<div id="panelAccesibilidad" class="panel-accesibilidad" style="display:none;">
+  
+  <h3>Accesibilidad</h3>
+
+  <div class="acc-seccion">
+    <p class="acc-label">Tamaño de texto</p>
+    <div class="acc-fila">
+      <button onclick="cambiarTexto(-1)">A−</button>
+      <button onclick="cambiarTexto(0)">A</button>
+      <button onclick="cambiarTexto(1)">A+</button>
+    </div>
+  </div>
+
+  <div class="acc-seccion">
+    <p class ="acc-label">Modo de color</p>
+    <div class="acc-fila">
+      <button onclick="aplicarFiltro('')">Normal</button>
+      <button onclick="aplicarFiltro('deuteranopia')">daltonico</button>
+  </div>
+
+  
+  <div class="acc-seccion">
+    <p class="acc-label">Contraste</p>
+    <div class="acc-fila">
+      <button onclick="toggleContraste()">⬛ Alto contraste</button>
+      <button onclick="quitarContraste()">Normal</button>
+    </div>
+  </div>
+
+  <div class="acc-seccion">
+    <p class="acc-label">Calculadora</p>
+    <input id="calcDisplay" class="calc-display" type="text" readonly>
+    <div class="calc-grid">
+      <button onclick="calcInput('7')">7</button>
+      <button onclick="calcInput('8')">8</button>
+      <button onclick="calcInput('9')">9</button>
+      <button onclick="calcInput('/')">÷</button>
+      <button onclick="calcInput('4')">4</button>
+      <button onclick="calcInput('5')">5</button>
+      <button onclick="calcInput('6')">6</button>
+      <button onclick="calcInput('*')">×</button>
+      <button onclick="calcInput('1')">1</button>
+      <button onclick="calcInput('2')">2</button>
+      <button onclick="calcInput('3')">3</button>
+      <button onclick="calcInput('-')">−</button>
+      <button onclick="calcInput('0')">0</button>
+      <button onclick="calcInput('.')">.</button>
+      <button onclick="calcResult()">=</button>
+      <button onclick="calcInput('+')">+</button>
+      <button onclick="calcClear()" style="grid-column: 1/-1;">C</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div id="toast" class="toast"></div>
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+<script src="flotante.js"></script>
+
+
+</body>
+</html>

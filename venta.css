@@ -1,0 +1,336 @@
+/* ======================================================
+   STYLESTOCK — Venta & Factura
+   ====================================================== */
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- HEADER ---- */
+.header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 32px;
+  margin-bottom: 28px;
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.4s ease both;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+}
+.brand-img {
+  width: 170px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 8px;
+  display: block;
+}
+.title {
+  font-family: var(--font-d);
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.subtitle { color: var(--text2); font-size: 14px; margin-top: 4px; }
+
+/* ---- PRENDA RESUMEN ---- */
+.prenda-resumen {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.prenda-resumen img {
+  width: 64px; height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--bg2);
+}
+.prenda-info-nombre {
+  font-family: var(--font-d);
+  font-size: 16px;
+  font-weight: 700;
+}
+.prenda-info-sub {
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 3px;
+}
+.prenda-stock {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--accent3);
+  font-weight: 600;
+}
+
+/* ---- FORM CARD ---- */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.4s 0.1s ease both;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,90,240,0.13);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ---- TOTAL ---- */
+.total-box {
+  background: rgba(124,90,240,0.08);
+  border: 1px solid rgba(124,90,240,0.2);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.total-label { font-size: 14px; color: var(--text2); }
+.total-valor {
+  font-family: var(--font-d);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ---- BOTONES ---- */
+#btnVender {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent3);
+  color: #0a0b0f;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-d);
+  font-size: 15px; font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#btnVender:hover {
+  background: #2ec99a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(56,217,169,0.35);
+}
+
+.btn-back-link {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text2);
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s;
+}
+.btn-back-link:hover { color: var(--text); }
+
+/* ======================================================
+   FACTURA
+   ====================================================== */
+.factura-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.4s ease both;
+}
+
+.factura-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.factura-logo img {
+  width: 160px;
+  filter: brightness(0) invert(1);
+}
+.factura-num {
+  text-align: right;
+}
+.factura-num p {
+  font-size: 13px;
+  color: var(--text2);
+}
+.factura-num strong {
+  font-family: var(--font-d);
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.factura-cliente {
+  margin-bottom: 28px;
+}
+.factura-cliente h3 {
+  font-family: var(--font-d);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.factura-cliente p {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.factura-cliente span { color: var(--text2); font-size: 13px; }
+
+.factura-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+.factura-tabla th {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border2);
+  text-align: left;
+}
+.factura-tabla td {
+  padding: 14px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.factura-tabla td:last-child,
+.factura-tabla th:last-child { text-align: right; }
+
+.factura-total {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--border2);
+  margin-bottom: 36px;
+}
+.factura-total-inner { text-align: right; }
+.factura-total-label { font-size: 13px; color: var(--text2); margin-bottom: 4px; }
+.factura-total-valor {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.factura-footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text3);
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.factura-acciones {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+.btn-imprimir {
+  flex: 1;
+  padding: 13px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-d);
+  font-size: 14px; font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-imprimir:hover {
+  background: #9370ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124,90,240,0.4);
+}
+.btn-volver-inv {
+  flex: 1;
+  padding: 13px;
+  background: var(--bg3);
+  color: var(--text2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-volver-inv:hover { background: var(--surface2); color: var(--text); }
+
+/* PRINT */
+@media print {
+  .orb-bg, .factura-acciones { display: none !important; }
+  body { background: white; color: black; }
+  .factura-card {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  .factura-logo img { filter: none; }
+  .title, .factura-total-valor { color: #6b47e0 !important; }
+  .factura-tabla th, .factura-cliente h3 { color: #999 !important; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: 20px 16px; }
+  .form-card, .factura-card { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .factura-acciones { flex-direction: column; }
+}

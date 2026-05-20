@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleStock — Factura</title>
+<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="venta.css">
+<link rel="icon" type="image/svg+xml" href="Gemini_Generated_Image_kxv9nskxv9nskxv9.png">
+</head>
+<body>
+
+ <svg style="display:none">
+  <defs>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                            0.7   0.3   0 0 0
+                                            0     0.3   0.7 0 0
+                                            0     0     0   1 0"/>
+    </filter>
+  </defs>
+</svg>
+
+
+
+
+
+<div class="orb-bg">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<div class="page">
+
+  <div class="factura-card" id="facturaContenido">
+
+    <!-- ENCABEZADO -->
+    <div class="factura-header">
+      <div class="factura-logo">
+        <img src="logo_text.png" alt="StyleStock">
+        <p style="font-size:12px;color:var(--text2);margin-top:6px;">Gestión de inventario de moda</p>
+      </div>
+      <div class="factura-num">
+        <p>Factura N°</p>
+        <strong id="facturaNum">—</strong>
+        <p style="margin-top:6px;" id="facturaFecha"></p>
+      </div>
+    </div>
+
+    <!-- CLIENTE -->
+    <div class="factura-cliente">
+      <h3>Cliente</h3>
+      <p id="facturaClienteNombre"></p>
+      <span id="facturaClienteDoc"></span>
+    </div>
+
+    <!-- TABLA -->
+    <table class="factura-tabla">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Talla</th>
+          <th>Color</th>
+          <th>Cant.</th>
+          <th>Precio unit.</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="facturaItems"></tbody>
+    </table>
+
+    <!-- TOTAL -->
+    <div class="factura-total">
+      <div class="factura-total-inner">
+        <div class="factura-total-label">Total pagado</div>
+        <div class="factura-total-valor" id="facturaTotal"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="factura-footer">
+      ¡Gracias por tu compra! · StyleStock © 2026
+    </div>
+
+    <!-- ACCIONES -->
+    <div class="factura-acciones">
+      <button class="btn-imprimir" onclick="window.print()">🖨 Imprimir factura</button>
+      <button class="btn-volver-inv" onclick="window.location.href='inventario.html'">← Volver al inventario</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<button class="btn-accesibilidad" onclick="toggleAccesibilidad()">♿</button>
+
+<div id="panelAccesibilidad" class="panel-accesibilidad" style="display:none;">
+  
+  <h3>Accesibilidad</h3>
+
+  <div class="acc-seccion">
+    <p class="acc-label">Tamaño de texto</p>
+    <div class="acc-fila">
+      <button onclick="cambiarTexto(-1)">A−</button>
+      <button onclick="cambiarTexto(0)">A</button>
+      <button onclick="cambiarTexto(1)">A+</button>
+    </div>
+  </div>
+
+    <div class="acc-seccion">
+      <p class="acc-label">Modo de color</p>
+      <div class="acc-fila">
+        <button onclick="aplicarFiltro('')">Normal</button>
+        <button onclick="aplicarFiltro('deuteranopia')">daltonico</button>
+      </div>
+
+  <div class="acc-seccion">
+    <p class="acc-label">Contraste</p>
+    <div class="acc-fila">
+      <button onclick="toggleContraste()">⬛ Alto contraste</button>
+      <button onclick="quitarContraste()">Normal</button>
+    </div>
+  </div>
+
+  <div class="acc-seccion">
+    <p class="acc-label">Calculadora</p>
+    <input id="calcDisplay" class="calc-display" type="text" readonly>
+    <div class="calc-grid">
+      <button onclick="calcInput('7')">7</button>
+      <button onclick="calcInput('8')">8</button>
+      <button onclick="calcInput('9')">9</button>
+      <button onclick="calcInput('/')">÷</button>
+      <button onclick="calcInput('4')">4</button>
+      <button onclick="calcInput('5')">5</button>
+      <button onclick="calcInput('6')">6</button>
+      <button onclick="calcInput('*')">×</button>
+      <button onclick="calcInput('1')">1</button>
+      <button onclick="calcInput('2')">2</button>
+      <button onclick="calcInput('3')">3</button>
+      <button onclick="calcInput('-')">−</button>
+      <button onclick="calcInput('0')">0</button>
+      <button onclick="calcInput('.')">.</button>
+      <button onclick="calcResult()">=</button>
+      <button onclick="calcInput('+')">+</button>
+      <button onclick="calcClear()" style="grid-column: 1/-1;">C</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div id="toast" class="toast"></div>
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+
+
+<script src="flotante.js"></script>
+
+
+
+</html>

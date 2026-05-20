@@ -1,0 +1,11 @@
+# Extensiones y configuración de VS Code
+.vscode/
+
+# Python (librerías y archivos temporales)
+__pycache__/
+venv/
+.env
+*.pyc
+
+# Si usas Node.js
+node_modules/

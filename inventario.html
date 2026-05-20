@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleStock — Inventario</title>
+<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="inventario.css">
+<link rel="icon" type="image/svg+xml" href="Gemini_Generated_Image_kxv9nskxv9nskxv9.png">
+</head>
+<body>
+
+ <svg style="display:none">
+  <defs>
+    <filter id="deuteranopia">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                            0.7   0.3   0 0 0
+                                            0     0.3   0.7 0 0
+                                            0     0     0   1 0"/>
+    </filter>
+  </defs>
+</svg>
+
+
+
+
+
+<div class="orb-bg">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo_text.png" class="brand-img" alt="StyleStock">
+    <div class="header-text">
+      <h1 class="title">INVENTARIO</h1>
+      <p class="subtitle">Gestiona tu stock de moda con estilo</p>
+    </div>
+    <button class="btn-perfil" onclick="abrirPerfil()">👤 Perfil</button>
+   
+    <button class="btn-logout" onclick="cerrarSesion()">⛔Cerrar sesión</button>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="controls">
+    <div class="search-box">
+      <span>🔍</span>
+      <input id="buscar" type="text" placeholder="Buscar prenda...">
+    </div>
+
+    <div class="custom-select" id="selectCategoria">
+      <div class="select-selected" onclick="toggleSelect(this)">
+        <span>Categoría</span>
+        <svg width="12" height="8" viewBox="0 0 12 8">
+          <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="select-options">
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', '')">Todas</div>
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', 'Camisas')">Camisas</div>
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', 'Pantalones')">Pantalones</div>
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', 'Vestidos')">Vestidos</div>
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', 'Abrigos')">Abrigos</div>
+        <div class="select-option" onclick="seleccionar(this, 'selectCategoria', 'fCategoria', 'Zapatos')">Zapatos</div>
+      </div>
+
+      <input type="hidden" id="fCategoria" value="">
+
+    </div>
+
+    <div class="custom-select" id="selectTalla">
+  <div class="select-selected" onclick="toggleSelect(this)">
+    <span>Talla</span>
+    <svg width="12" height="8" viewBox="0 0 12 8">
+      <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="select-options">
+    <div class="select-option" onclick="seleccionar(this, 'selectTalla', 'fTalla', '')">Todas</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectTalla', 'fTalla', 'S')">S</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectTalla', 'fTalla', 'M')">M</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectTalla', 'fTalla', 'L')">L</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectTalla', 'fTalla', 'XL')">XL</div>
+  </div>
+  <input type="hidden" id="fTalla" value="">
+</div>
+
+    <div class="custom-select" id="selectColor">
+  <div class="select-selected" onclick="toggleSelect(this)">
+    <span>Color</span>
+    <svg width="12" height="8" viewBox="0 0 12 8">
+      <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="select-options">
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', '')">Todos</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Negro')">Negro</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Blanco')">Blanco</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Azul')">Azul</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Gris')">Gris</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Rojo')">Rojo</div>
+    <div class="select-option" onclick="seleccionar(this, 'selectColor', 'fColor', 'Verde')">Verde</div>
+  </div>
+  <input type="hidden" id="fColor" value="">
+</div>
+
+    <button onclick="irAgregar()" class="btn-add">+ Agregar</button>
+    <button onclick="window.location.href='dashboard.html'" class="btn-dashboard">Dashboard</button>
+  </div>
+
+  <!-- GRID -->
+  <div id="grid" class="grid"></div>
+
+</div>
+
+<div id="modalPerfil" class="modal-perfil" style="display:none;">
+  <div class="modal-perfil-box">
+    
+    <div class="perfil-avatar">👤</div>
+    
+    <h2 id="perfilNombre"></h2>
+
+    <div class="perfil-datos">
+      <div class="perfil-item">
+        <span class="perfil-label">Nombre</span>
+        <span class="perfil-valor" id="perfilNombreVal"></span>
+      </div>
+      <div class="perfil-item">
+        <span class="perfil-label">Correo</span>
+        <span class="perfil-valor" id="perfilEmailVal"></span>
+      </div>
+    </div>
+
+    <div class="perfil-cambiar">
+      <h3>Cambiar contraseña</h3>
+      <div class="form-group">
+        <label>Nueva contraseña</label>
+        <input id="nuevaPassword" type="password" placeholder="••••••••">
+      </div>
+      <div class="form-group">
+        <label>Confirmar contraseña</label>
+        <input id="confirmarPassword" type="password" placeholder="••••••••">
+      </div>
+      <button class="btn-cambiar-pass" onclick="cambiarPassword()">Guardar contraseña</button>
+    </div>
+
+    <button class="btn-cerrar-perfil" onclick="cerrarPerfil()">✕ Cerrar</button>
+
+  </div>
+</div>
+<!-- ACCESIBILIDAD -->
+<button class="btn-accesibilidad" onclick="toggleAccesibilidad()">♿</button>
+
+<div id="panelAccesibilidad" class="panel-accesibilidad" style="display:none;">
+  
+  <h3>Accesibilidad</h3>
+
+  <!-- TEXTO -->
+  <div class="acc-seccion">
+    <p class="acc-label">Tamaño de texto</p>
+    <div class="acc-fila">
+      <button onclick="cambiarTexto(-1)">A−</button>
+      <button onclick="cambiarTexto(0)">A</button>
+      <button onclick="cambiarTexto(1)">A+</button>
+    </div>
+  </div>
+
+  <!-- DALTONISMO -->
+    <div class="acc-seccion">
+      <p class="acc-label">Modo de color</p>
+      <div class="acc-fila">
+        <button onclick="aplicarFiltro('')">Normal</button>
+        <button onclick="aplicarFiltro('deuteranopia')">daltonico</button>
+      </div>
+
+  <!-- ALTO CONTRASTE -->
+  <div class="acc-seccion">
+    <p class="acc-label">Contraste</p>
+    <div class="acc-fila">
+      <button onclick="toggleContraste()">⬛ Alto contraste</button>
+      <button onclick="quitarContraste()">Normal</button>
+    </div>
+  </div>
+
+  <!-- CALCULADORA -->
+  <div class="acc-seccion">
+    <p class="acc-label">Calculadora</p>
+    <input id="calcDisplay" class="calc-display" type="text" readonly>
+    <div class="calc-grid">
+      <button onclick="calcInput('7')">7</button>
+      <button onclick="calcInput('8')">8</button>
+      <button onclick="calcInput('9')">9</button>
+      <button onclick="calcInput('/')">÷</button>
+      <button onclick="calcInput('4')">4</button>
+      <button onclick="calcInput('5')">5</button>
+      <button onclick="calcInput('6')">6</button>
+      <button onclick="calcInput('*')">×</button>
+      <button onclick="calcInput('1')">1</button>
+      <button onclick="calcInput('2')">2</button>
+      <button onclick="calcInput('3')">3</button>
+      <button onclick="calcInput('-')">−</button>
+      <button onclick="calcInput('0')">0</button>
+      <button onclick="calcInput('.')">.</button>
+      <button onclick="calcResult()">=</button>
+      <button onclick="calcInput('+')">+</button>
+      <button onclick="calcClear()" style="grid-column: 1/-1;">C</button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="particulas.js"></script>
+<script src="app.js"></script>
+<script src="flotante.js"></script>
+</body>
+</html>
